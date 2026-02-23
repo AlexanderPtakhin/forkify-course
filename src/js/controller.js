@@ -81,11 +81,14 @@ const controlBookmarks = function () {
 
 const controlAddRecipe = async function (newRecipe) {
   try {
-   await  model.uploadRecipe(newRecipe);
+    await model.uploadRecipe(newRecipe);
   } catch (err) {
     console.log('💩', err);
     addRecipeView.renderError(err.message);
   }
+};
+const newFeature = function () {
+  console.log('ПРивет бля');
 };
 
 const init = function () {
@@ -96,6 +99,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  console.log('welcome');
+  newFeature();
 };
 init();
