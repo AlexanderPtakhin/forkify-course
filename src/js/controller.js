@@ -41,7 +41,6 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query);
     // Выводим результат
 
-    // resultsView.render(model.state.search.results);
     resultsView.render(model.getSearchResultPage());
     // Выводим кнопки пагинации
     paginationView.render(model.state.search);
@@ -60,7 +59,7 @@ const controlServings = function (newServings) {
   // обновить представление рецепта(в state)
   model.updateServings(newServings);
   // Обновить отображение рецепта
-  // recipeView.render(model.state.recipe);
+
   recipeView.update(model.state.recipe);
 };
 
@@ -87,9 +86,7 @@ const controlAddRecipe = async function (newRecipe) {
     addRecipeView.renderError(err.message);
   }
 };
-const newFeature = function () {
-  console.log('ПРивет бля');
-};
+
 
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
@@ -99,6 +96,5 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  newFeature();
 };
 init();
